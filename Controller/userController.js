@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const {
     registerValidate,
     loginValidate,
-} = require("../middleware/validate.js");
+} = require("../Middleware/validate.js");
 
 class UserController {
     getAllUsers = (req, res) => {
