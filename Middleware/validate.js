@@ -12,19 +12,15 @@ const postSolutionsValidate = (data) => {
 };
 
 
-// const userUpdateValidate = (data) => {
-//     const schema = Joi.object({
-//         name: Joi.string().min(3),
-//         email: Joi.string().email().min(10),
-//         passwordHash: Joi.string(),
-//         phone: Joi.string(),
-//         street: Joi.string(),
-//         city: Joi.string(),
-//         country: Joi.string(),
-//         avatar: Joi.string(),
-//     });
-//     return schema.validate(data);
-// };
+const userUpdateValidate = (data) => {
+    const schema = Joi.object({
+        email: Joi.string().email().min(10).required(),
+        phone: Joi.string(),required,
+        password: Joi.string().min(6).required(),
+       
+    });
+    return schema.validate(data);
+};
 
 const registerValidate = (data) => {
     const schema = Joi.object({
@@ -45,4 +41,22 @@ const loginValidate = (data) => {
     });
     return schema.validate(data);
 };
-module.exports = { postSolutionsValidate ,registerValidate,loginValidate}
+const eventCalendarValidate = (data) => {
+    const schema = Joi.object({
+        dateStart: Joi.date().iso().required(),
+        dateEnd : Joi.date().iso().greater(Joi.ref('dateStart')).required(),
+      content: Joi.string().min(1).required(),
+
+// const messagesUpdateObj = {
+//     startTime: Joi.date().iso().required(),
+//     endTime : Joi.date().iso().greater(Joi.ref('startTime')).required()
+//   };
+// let schema =  Joi.object().keys(messagesUpdateObj);
+// console.log(Joi.validate({startTime : '2018-08-28T11:46:30.120',endTime : '2018-08-29T11:46:30.120'}, schema));
+        
+    });
+    return schema.validate(data);
+};
+
+
+module.exports = { postSolutionsValidate ,registerValidate,loginValidate,userUpdateValidate,eventCalendarValidate}

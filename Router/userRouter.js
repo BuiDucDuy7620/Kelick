@@ -7,4 +7,10 @@ UserRouter.get("/", UserController.getAllUsers);
 // UserRouter.get("/get/count", MiddlewareVerify, UserController.getTotalsUsers);
 UserRouter.post("/register", UserController.register);
 UserRouter.post("/login", UserController.login);
+// UserRouter.post("/forgetPassword", UserController.forgetPassword);
+// UserRouter.post("/resetPassword", UserController.resetPassword);
+
+
+
+
 module.exports = UserRouter;
