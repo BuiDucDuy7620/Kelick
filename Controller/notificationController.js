@@ -62,7 +62,7 @@ const newNotification = (req, res) => {
         if (err) {
             res.send("Error luu thong tin Notification");
         } else {
-            console.log("Luu thong tin Notification thanh cong", Notification);
+            console.log("Luu thong tin Notification thanh congf", Notification);
             res.send(Notification);
         }
     });
