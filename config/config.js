@@ -1,6 +1,6 @@
 const config={
     secret_jwt:"chuoibimatkhongthetietlo",
-    emailUser:'',
-    emailPassword:''
+    emailUser:'buiducduy7620@gmail.com',
+    emailPassword:'poitnqgferktpjxu'
 }
 module.exports=config
