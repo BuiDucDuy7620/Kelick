@@ -19,6 +19,8 @@ app.use(
         extended: true,
     })
 );
+// app.use('/static', express.static(path.join(__dirname, 'public')))
+
 router(app);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

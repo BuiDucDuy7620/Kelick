@@ -10,7 +10,17 @@ const { userUpdateValidate,
 
 const nodemailer = require('nodemailer')
 const randomstring = require('randomstring');
-
+const getAllUsers = (req, res) => {
+    UserModel.find().exec((err, users) => {
+        if (err) {
+            res.send("Khong the lay thong tin users");
+        } else {
+            console.log("Lay thanh cong thong tin tat ca users");
+            console.log(users);
+            res.json({data:users});
+        }
+    });
+};
 const sendResetPasswordMail = async (name, email, token) => {
     try {
         // const transporter = nodemailer.createTransport({
@@ -280,4 +290,4 @@ const forgetPassword = async (req, res) => {
 
 // module.exports = new UserController();
 
-module.exports = { register, login, updateUser, forgetPassword }
+module.exports = { register, login, updateUser, forgetPassword,getAllUsers }
