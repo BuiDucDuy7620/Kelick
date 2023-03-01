@@ -52,7 +52,9 @@ class organizationController {
         })
     }
     getOrganizationById = (req, res) => {
-        organizationModel.find({ _id: req.params.id }).exec((err, Organization) => {
+        organizationModel.find({ _id: req.params.id })
+        .populate("Department")
+        .exec((err, Organization) => {
             if (err) {
                 res.send('khong the lay thong tin Organization')
             } else {

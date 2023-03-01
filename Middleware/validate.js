@@ -70,6 +70,8 @@ const notificationValidate = (data) => {
 };
 const organizationValidate = (data) => {
     const schema = Joi.object({
+        department_id: Joi.string().min(1).required(),
+
         organizationName: Joi.string().min(1).required(),
         countryBased: Joi.string().min(1).required(),
         business: Joi.string().min(1),
@@ -87,6 +89,22 @@ const organizationValidate = (data) => {
     });
     return schema.validate(data);
 };
+const departmentValidate = (data) => {
+    const schema = Joi.object({
+        name: Joi.string().min(1).required(),
+        description: Joi.string().min(1).required(),
 
+    });
+    return schema.validate(data);
+};
 
-module.exports = { postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }
+const organizationDepartmentValidate = (data) => {
+    const schema = Joi.object({
+        organization_id: Joi.string().min(1).required(),
+        department_id: Joi.string().min(1).required()
+
+    });
+    return schema.validate(data);
+};
+
+module.exports = { organizationDepartmentValidate, departmentValidate, postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }
