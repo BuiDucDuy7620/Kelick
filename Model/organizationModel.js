@@ -1,22 +1,23 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const dayjs=require("dayjs");
 const OrganizationSchema = new Schema({
     organizationName: {
         type: String,
         required: true
     },
-    country: {
+    countryBased: {
         type: String,
         required: true
     },
     business: {
         type: String,
-        required: true
-        // default: dayjs().format('YYYY-MM-DD'),
+        default: ""        // default: dayjs().format('YYYY-MM-DD'),
     },
     industry: {
         type: String,
-        required: true
+        // required: true
+        default: ""
     },
     organizationId: {
         type: String,
@@ -28,33 +29,33 @@ const OrganizationSchema = new Schema({
     },
     businessRegistrantionNumber: {
         type: String,
-        required: true
+        // required: true
+        default: ""
     },
     dateOfIncorporation: {
-        type: Day,
-        required: true,
-        default: dayjs().format('YYYY-MM-DD'),
-
+        type: Date,
+        // default: "",
+        default: dayjs().format('YYY-MM-DD'),
     },
     postalCode: {
         type: String,
-        required: true
+        default: ""
+    },
+    country: {
+        type: String,
+        default: ""
     },
     addressLine1: {
         type: String,
-        required: true
+        default: ""
     },
     addressLine2: {
         type: String,
-        required: true
+        default: ""
     },
     addressLine3: {
         type: String,
-        required: true
-    },
-    departmentName: {
-        type: String,
-        required: true
+        default: ""
     }
 
 });

@@ -68,6 +68,25 @@ const notificationValidate = (data) => {
     });
     return schema.validate(data);
 };
+const organizationValidate = (data) => {
+    const schema = Joi.object({
+        organizationName: Joi.string().min(1).required(),
+        countryBased: Joi.string().min(1).required(),
+        business: Joi.string().min(1),
+        industry: Joi.string().min(1),
+        organizationId: Joi.string().min(1).required(),
+        dateOfIncorporation: Joi.date(),
+        logo: Joi.string().min(1).required(),
+        businessRegistrantionNumber: Joi.string().min(1), detail: Joi.string().min(1),
+        postalCode: Joi.string().min(1), detail: Joi.string().min(1),
+        country: Joi.string().min(1), detail: Joi.string().min(1),
+        addressLine1: Joi.string().min(1), detail: Joi.string().min(1),
+        addressLine2: Joi.string().min(1), detail: Joi.string().min(1),
+        addressLine3: Joi.string().min(1), detail: Joi.string().min(1),
+
+    });
+    return schema.validate(data);
+};
 
 
-module.exports = { postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate }
+module.exports = { postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }

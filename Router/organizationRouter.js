@@ -1,8 +1,8 @@
 const express = require("express");
 const organizationRouter = express.Router();
 const organizationController = require("../Controller/organizationController.js");
-organizationRouter.post("/createEventCalendar", organizationController.createEventCalendar);
-organizationRouter.get("/getAllEventCalendar", organizationController.getAllEventCalendar);
-organizationRouter.get("/getEventCalendarById/:id", organizationController.getEventCalendarById);
+organizationRouter.post("/newOrganizationDetail", organizationController.newOrganizationDetail);
+organizationRouter.get("/getAllOrganization", organizationController.getAllOrganization);
+organizationRouter.get("/getOrganizationById/:id", organizationController.getOrganizationById);
 
 module.exports = organizationRouter;

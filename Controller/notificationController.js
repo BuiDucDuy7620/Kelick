@@ -29,16 +29,18 @@ const getNotificationById = (req, res) => {
             }
         });
 };
-const getNotificationByDate = (req, res) => {
+const getNotificationByDate = (req, res) => {// error: chon sai ngay van tra ve du lieu
     // console.log(req.body.dateCreated)
     // console.log(new Date(`${req.body.dateCreated}`)
     // )
     NotificationModel.find({
         dateCreated: {
-            $gte: new Date(`${req.body.date}`),
+            // $gte: new Date(`${req.body.date}`),
             // $lt: new Date(`${req.body.dateEnd}`)
             // [Op.between]: [6, 10],     // BETWEEN 6 AND 10
-// $between: new Date(`${req.body.date}`)
+            // $between: new Date(`${req.body.date}`)
+            $gte: new Date(`${req.body.dateStart}`),
+            $lt: new Date(`${req.body.dateEnd}`)
         }
     })
         .populate("user")
@@ -67,10 +69,6 @@ const newNotification = (req, res) => {
         }
     });
 };
-
-
-
-
 module.exports = {
     getAllNotification,
     getNotificationById,
