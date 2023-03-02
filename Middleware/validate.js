@@ -115,9 +115,6 @@ const organizationBranchOuletValidate = (data) => {
         // noOfEmployees: Joi.string().min(1).required(),
         // status: Joi.boolean().required(),
         // address: Joi.string().min(1).required(),
-
-
-
     });
     return schema.validate(data);
 };
@@ -132,5 +129,29 @@ const orgAnnouncementValidate = (data) => {
     });
     return schema.validate(data);
 };
+const orgHolidayWorkListValidate = (data) => {
+    const schema = Joi.object({
+        dateStart: Joi.date().min(1).required(),
+        dateEnd: Joi.date().min(1).required(),
+        postalCode: Joi.string().min(1).required(),
+    });
+    return schema.validate(data);
+};
+const iterviewRole1Validate = (data) => {
+    const schema = Joi.object({
+        dateStart: Joi.date().min(1).required(),
+        dateEnd: Joi.date().min(1).required(),
+        postalCode: Joi.string().min(1).required(),
+    });
+    return schema.validate(data);
+};
+const iterviewRole2Validate = (data) => {
+    const schema = Joi.object({
+        dateStart: Joi.date().min(1).required(),
+        dateEnd: Joi.date().min(1).required(),
+        postalCode: Joi.string().min(1).required(),
+    });
+    return schema.validate(data);
+};
 
-module.exports = { orgAnnouncementValidate, organizationBranchOuletValidate, organizationDepartmentValidate, departmentValidate, postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }
+module.exports = {iterviewRole2Validate,iterviewRole1Validate, orgHolidayWorkListValidate, orgAnnouncementValidate, organizationBranchOuletValidate, organizationDepartmentValidate, departmentValidate, postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }

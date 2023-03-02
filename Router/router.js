@@ -8,6 +8,10 @@ const departmentRouter = require('./departmentRouter')
 const organizationDepartmentRouter = require('./organizationDepartmentRouter')
 const organizationBranchOutletRouter = require('./organizationBranchOutletRouter')
 const orgAnnouncementRouter = require('./orgAnnouncementRouter')
+const orgHolidayWorkListRouter = require('./orgHolidayWorkListRouter')
+const interviewRole1Router = require('./interviewRole1Router')
+const interviewRole2Router = require('./interviewRole2Router')
+
 
 const Router = (app) => {
     // app.get('/',(req,res)=>{res.send('hello')})
@@ -21,6 +25,9 @@ const Router = (app) => {
     app.use('/kelick/organizationDepartment', organizationDepartmentRouter)
     app.use('/kelick/organizationBranchOutlet', organizationBranchOutletRouter)
     app.use('/kelick/orgAnnouncement', orgAnnouncementRouter)
+    app.use('/kelick/orgHolidayWorkList', orgHolidayWorkListRouter)
+    app.use('/kelick/interviewRole1', interviewRole1Router)
+    app.use('/kelick/interviewRole2', interviewRole2Router)
 
 
 }
