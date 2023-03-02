@@ -106,5 +106,31 @@ const organizationDepartmentValidate = (data) => {
     });
     return schema.validate(data);
 };
+const organizationBranchOuletValidate = (data) => {
+    const schema = Joi.object({
+        name: Joi.string().min(1).required(),
+        // country: Joi.string().min(1).required(),
+        // postalCode: Joi.string().min(1).required(),
+        // officeNo: Joi.string().min(1).required(),
+        // noOfEmployees: Joi.string().min(1).required(),
+        // status: Joi.boolean().required(),
+        // address: Joi.string().min(1).required(),
 
-module.exports = { organizationDepartmentValidate, departmentValidate, postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }
+
+
+    });
+    return schema.validate(data);
+};
+const orgAnnouncementValidate = (data) => {
+    const schema = Joi.object({
+        title: Joi.string().min(1).required(),
+        content: Joi.string().min(1).required(),
+        branchOutlet: Joi.string().min(1).required(),
+        publishDate: Joi.string().min(1).required(),
+        department: Joi.string().min(1).required(),
+        publishStatus: Joi.boolean().required(),
+    });
+    return schema.validate(data);
+};
+
+module.exports = { orgAnnouncementValidate, organizationBranchOuletValidate, organizationDepartmentValidate, departmentValidate, postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }
