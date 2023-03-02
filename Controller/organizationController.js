@@ -24,7 +24,7 @@ class organizationController {
                 )
 
             }
-            value.file = document.url 
+            value.file = document.url
         }
         // var x = path.join(`./public/document/${new Date().toLocaleDateString}`)
 
@@ -42,7 +42,7 @@ class organizationController {
             }
         })
     }
-    getAllOrganization = async(req, res) => {
+    getAllOrganization = async (req, res) => {
         organizationModel.find({}).exec((error, value) => {
             if (error) {
                 res.send(error)
@@ -53,14 +53,63 @@ class organizationController {
     }
     getOrganizationById = (req, res) => {
         organizationModel.find({ _id: req.params.id })
-        .populate("Department")
-        .exec((err, Organization) => {
-            if (err) {
-                res.send('khong the lay thong tin Organization')
-            } else {
-                res.json(Organization)
-            }
-        })
+            // .populate("Department")
+            .exec((err, Organization) => {
+                if (err) {
+                    res.send(err)
+
+                } else {
+                    res.json(Organization)
+                    console.log(Organization)
+                }
+            })
     }
+    //     updateOrganizationById = (req, res) => {
+    //         // const { error, value } = userUpdateValidate(req.body);
+    //         // if (error) return res.status(400).send(error.details[0].message);
+    // const value=req.body.value
+    //         organizationModel.findOneAndUpdate(
+    //             { _id: req.params.id },
+    //             value,
+    //             { new: true },
+    //             (err) => {
+    //                 if (err) {
+    //                     res.send("Da xay ra loi khi update thong tin");
+    //                 } else {
+    //                     res.send("Update thong tin thanh cong");
+    //                 }
+    //             }
+    //         );
+    //     };
+
+    updateOrganizationById = async (req, res) => {
+        try {
+            const data = await organizationModel.findOne({ _id: req.params.id })
+            if (data) {
+                const userData = await organizationModel.findByIdAndUpdate({ _id: req.params.id }, {
+                    $set: {
+                        logo: req.body.logo,
+                    }
+                })
+                res.status(200).send({ success: true, msg: "your password has been updated" })
+            } else {
+                res.status(200).send({ success: false, msg: 'User Id not found' })
+            }
+        }
+        catch (e) {
+            res.status(400).send(e.message)
+        }
+    }
+
+    deleteOrganizationById = (req, res) => {
+        organizationModel.findOneAndDelete({ _id: req.params.id }, (err) => {
+            if (err) {
+                res.send("Da co loi xay ra khi delete user");
+            } else {
+                res.send("Xoa user thanh cong");
+            }
+        });
+    };
+
 }
 module.exports = new organizationController()

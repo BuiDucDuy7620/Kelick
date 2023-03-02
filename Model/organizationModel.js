@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const dayjs=require("dayjs");
 const OrganizationSchema = new Schema({
-    department_id: {
-        type: mongoose.ObjectId,
-        ref: "Department",
-        required: true,
-    },
+    // department_id: {
+    //     type: mongoose.ObjectId,
+    //     ref: "Department",
+    //     required: true,
+    // },
     organizationName: {
         type: String,
         required: true
