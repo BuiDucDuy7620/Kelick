@@ -165,7 +165,6 @@ const iterviewCandidateValidate = (data) => {
         phoneNumber: Joi.string().min(1),
         email: Joi.string().email().min(1),
         attachment: Joi.string().min(1),
-
     });
     return schema.validate(data);
 };
@@ -173,7 +172,6 @@ const payrollListValidate = (data) => {
     const schema = Joi.object({
         payslip: Joi.string().min(0),
         name: Joi.string().min(0),
-
         nric: Joi.string().min(0),
         takeHomeSalary: Joi.number().min(0),
         grossSalaray: Joi.number().min(0),
@@ -191,7 +189,6 @@ const payrollPayItemValidate = (data) => {
     const schema = Joi.object({
         payslip: Joi.string().min(0),
         name: Joi.string().min(0),
-
         nric: Joi.string().min(0),
         takeHomeSalary: Joi.number().min(0),
         grossSalaray: Joi.number().min(0),
@@ -201,7 +198,6 @@ const payrollPayItemValidate = (data) => {
         employeerCPF: Joi.number().min(0),
         totalCPF: Joi.number().min(0),
         SDL: Joi.number().min(0),
-
     });
     return schema.validate(data);
 };
@@ -209,12 +205,116 @@ const assetValidate = (data) => {
     const schema = Joi.object({
         assetName: Joi.string().min(0).required(),
         description: Joi.string().min(0),
-
         availability: Joi.string().min(0).required(),
         assignedTo: Joi.string().min(0),
-        
+    });
+    return schema.validate(data);
+};
+const attendanceValidate = (data) => {
+    const schema = Joi.object({
+        employeeName: Joi.string().min(0).required(),
+        checkInLocation: Joi.string().min(0).required(),
+        checkOutLocation: Joi.string().min(0),
+        validity: Joi.string().min(0),
+        checkInDate: Joi.string().min(0).required(),
+        checkInTime: Joi.string().min(0).required(),
+        checkOutDate: Joi.string().min(0),
+        checkOutTime: Joi.string().min(0)
+    });
+    return schema.validate(data);
+};
+const shiftValidate = (data) => {
+    const schema = Joi.object({
+        shiftType: Joi.string().min(0).required(),
+        outletBranch: Joi.string().min(0).required(),
+        timeIn: Joi.string().min(0),
+        timeOut: Joi.string().min(0),
+    });
+    return schema.validate(data);
+};
+const shiftTemplateValidate = (data) => {
+    const schema = Joi.object({
+        shiftTemplateName: Joi.string().min(0).required(),
+        shiftType: Joi.string().min(0).required(),
+        noOfDay: Joi.string().min(0),
+        ouletBranch: Joi.string().min(0),
+        timeIn: Joi.string().min(0),
+        timeOut: Joi.string().min(0)
+    });
+    return schema.validate(data);
+};
+const claimValidate = (data) => {
+    const schema = Joi.object({
+        employeeName: Joi.string().min(0).required(),
+        claimType: Joi.string().min(0).required(),
+        claimAmount: Joi.string().min(0).required(),
+        ouletBranch: Joi.string().min(0),
+        approvalStatus: Joi.string().min(0),
+        hasGST: Joi.boolean(),
+        totalAmount: Joi.string().min(0),
+        dateOfExpenditure: Joi.date().min(0),
+        receipt: Joi.string().min(0),
+        remarks: Joi.string().min(0)
+    });
+    return schema.validate(data);
+};
+const leaveValidate = (data) => {
+    const schema = Joi.object({
+        employeeName: Joi.string().min(0).required(),
+        leaveType: Joi.string().min(0).required(),
+        leaveDate: Joi.string().min(0).required(),
+        approvalStatus: Joi.string().min(0),
+        halfDayAM: Joi.string().min(0),
+        halfDayPM: Joi.boolean(),
+        totalAmount: Joi.boolean(),
+        remarks: Joi.string().min(0).required(),
+        attacchProof: Joi.string().min(0)
+    });
+    return schema.validate(data);
+};
+const appraisalSummaryValidate = (data) => {
+    const schema = Joi.object({
+        appraisal: Joi.string().min(0).required(),
+        employee: Joi.string().min(0).required(),
+        templateName: Joi.string().min(0).required(),
+        appraisalStartDate: Joi.string().min(0),
+        employeeEndDate: Joi.string().min(0),
+        appraisalStartDate: Joi.string().min(0),
+
+        appraisalStatus: Joi.boolean(),
+        reviewer: Joi.boolean(),
 
     });
     return schema.validate(data);
 };
-module.exports = {assetValidate, payrollPayItemValidate, payrollListValidate, iterviewCandidateValidate, iterviewRole2Validate, iterviewRole1Validate, orgHolidayWorkListValidate, orgAnnouncementValidate, organizationBranchOuletValidate, organizationDepartmentValidate, departmentValidate, postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }
+const appraisalTemplateValidate = (data) => {
+    const schema = Joi.object({
+        templateName: Joi.string().min(0),
+        description: Joi.string().min(0),
+        numberOfReviewers: Joi.date().min(0),
+        employeesIncluded: Joi.date().min(0),
+        createdDate: Joi.date().min(0),
+    });
+    return schema.validate(data);
+};
+const appraisalPeriodValidate = (data) => {
+    const schema = Joi.object({
+        templateName: Joi.string().min(0),
+        description: Joi.string().min(0),
+        numberOfReviewers: Joi.date().min(0),
+        employeesIncluded: Joi.date().min(0),
+        createdDate: Joi.date().min(0),
+    });
+    return schema.validate(data);
+};
+const deskBookingValidate = (data) => {
+    const schema = Joi.object({
+        bookingDate: Joi.date().min(0),
+        branchOulet: Joi.string().min(0),
+        bookingTime: Joi.string().min(0),
+        floor: Joi.string().min(0),
+        employeeBooked: Joi.string().min(0),
+    });
+    return schema.validate(data);
+};
+module.exports = {deskBookingValidate, appraisalPeriodValidate,appraisalTemplateValidate, appraisalSummaryValidate, leaveValidate, claimValidate, shiftTemplateValidate, shiftValidate, attendanceValidate, assetValidate, payrollPayItemValidate, payrollListValidate, iterviewCandidateValidate, iterviewRole2Validate, iterviewRole1Validate, orgHolidayWorkListValidate, orgAnnouncementValidate, organizationBranchOuletValidate, organizationDepartmentValidate, departmentValidate, postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }

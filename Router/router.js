@@ -16,7 +16,14 @@ const interviewHiringRouter = require('./interviewHiringRouter')
 const payrollListRouter = require('./payrollListRouter')
 const payrollPayItemRouter = require('./payrollPayItemRouter')
 const assetRouter = require('./assetRouter')
+const attendanceRouter = require('./attendanceRouter')
+const shiftRouter = require('./shiftRouter')
+const claimRouter = require('./claimRouter')
+const leaveRouter = require('./leaveRouter')
+const appraisalRouter = require('./appraisalRouter')
 
+const appraisalPeriodRouter = require('./appraisalPeriodRouter')
+const deskBookingRouter = require('./deskBookingRouter')
 
 const Router = (app) => {
     // app.get('/',(req,res)=>{res.send('hello')})
@@ -39,6 +46,13 @@ const Router = (app) => {
 
     app.use('/kelick/payrollPayItem', payrollPayItemRouter)
     app.use('/kelick/asset', assetRouter)
+    app.use('/kelick/attendance', attendanceRouter)
+    app.use('/kelick/shift', shiftRouter)
+    app.use('/kelick/claim', claimRouter)
+    app.use('/kelick/leave', leaveRouter)
+    app.use('/kelick/appraisal', appraisalRouter)
+    app.use('/kelick/appraisalPeriod', appraisalPeriodRouter)
+    app.use('/kelick/deskBooking', deskBookingRouter)
 
 
 }
