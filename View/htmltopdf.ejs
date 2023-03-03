@@ -1,0 +1,56 @@
+<table width="50%">
+
+    <tr>
+        <th>payslip </th>
+        <th>name </th>
+        <th>nric </th>
+        <th>takeHomeSalary </th>
+        <th>grossSalaray </th>
+        <th>otherItem </th>
+        <th>shg </th>
+        <th>employeeCPF </th>
+        <th>employeerCPF </th>
+        <th>totalCPF </th>
+        <th>SDL </th>
+    </tr>
+    <tbody>
+        <% payrollListModel.forEach(function(data) { %>
+            <tr>
+                <td>
+                    <%= data.payslip %>
+                </td>
+                <td>
+                    <%= data.name %>
+                </td>
+                <td>
+                    <%= data.nric %>
+                </td>
+                <td>
+                    <%= data.takeHomeSalary %>
+                </td>
+                <td>
+                    <%= data.grossSalaray %>
+                </td>
+                <td>
+                    <%= data.otherItem %>
+                </td>
+                <td>
+                    <%= data.shg %>
+                </td>
+                <td>
+                    <%= data.employeeCPF %>
+                </td>
+                <td>
+                    <%= data.employeerCPF %>
+                </td>
+                <td>
+                    <%= data.totalCPF %>
+                </td>
+                <td>
+                    <%= data.SDL %>
+                </td>
+            </tr>
+            <% }); %>
+    </tbody>
+
+</table>

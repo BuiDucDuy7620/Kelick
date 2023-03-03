@@ -11,6 +11,11 @@ const orgAnnouncementRouter = require('./orgAnnouncementRouter')
 const orgHolidayWorkListRouter = require('./orgHolidayWorkListRouter')
 const interviewRole1Router = require('./interviewRole1Router')
 const interviewRole2Router = require('./interviewRole2Router')
+const interviewCandidateRouter = require('./interviewCandidateRouter')
+const interviewHiringRouter = require('./interviewHiringRouter')
+const payrollListRouter = require('./payrollListRouter')
+const payrollPayItemRouter = require('./payrollPayItemRouter')
+const assetRouter = require('./assetRouter')
 
 
 const Router = (app) => {
@@ -28,6 +33,12 @@ const Router = (app) => {
     app.use('/kelick/orgHolidayWorkList', orgHolidayWorkListRouter)
     app.use('/kelick/interviewRole1', interviewRole1Router)
     app.use('/kelick/interviewRole2', interviewRole2Router)
+    app.use('/kelick/interviewCandidate', interviewCandidateRouter)
+    app.use('/kelick/interviewHiring', interviewHiringRouter)
+    app.use('/kelick/payrollList', payrollListRouter)
+
+    app.use('/kelick/payrollPayItem', payrollPayItemRouter)
+    app.use('/kelick/asset', assetRouter)
 
 
 }

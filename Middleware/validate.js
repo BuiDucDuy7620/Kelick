@@ -153,5 +153,68 @@ const iterviewRole2Validate = (data) => {
     });
     return schema.validate(data);
 };
+const iterviewCandidateValidate = (data) => {
+    const schema = Joi.object({
+        appliedRole: Joi.string().min(1),
+        candidateName: Joi.string().min(1).required(),
+        createdDate: Joi.date().min(1),
+        yearsExperience: Joi.number().min(1),
+        monthExperience: Joi.number().min(1),
+        nationality: Joi.string().min(1),
+        expectedSalary: Joi.string().min(1),
+        phoneNumber: Joi.string().min(1),
+        email: Joi.string().email().min(1),
+        attachment: Joi.string().min(1),
 
-module.exports = {iterviewRole2Validate,iterviewRole1Validate, orgHolidayWorkListValidate, orgAnnouncementValidate, organizationBranchOuletValidate, organizationDepartmentValidate, departmentValidate, postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }
+    });
+    return schema.validate(data);
+};
+const payrollListValidate = (data) => {
+    const schema = Joi.object({
+        payslip: Joi.string().min(0),
+        name: Joi.string().min(0),
+
+        nric: Joi.string().min(0),
+        takeHomeSalary: Joi.number().min(0),
+        grossSalaray: Joi.number().min(0),
+        otherItem: Joi.number().min(0),
+        shg: Joi.number().min(0),
+        employeeCPF: Joi.number().min(0),
+        employeerCPF: Joi.number().min(0),
+        totalCPF: Joi.number().min(0),
+        SDL: Joi.number().min(0),
+
+    });
+    return schema.validate(data);
+};
+const payrollPayItemValidate = (data) => {
+    const schema = Joi.object({
+        payslip: Joi.string().min(0),
+        name: Joi.string().min(0),
+
+        nric: Joi.string().min(0),
+        takeHomeSalary: Joi.number().min(0),
+        grossSalaray: Joi.number().min(0),
+        otherItem: Joi.number().min(0),
+        shg: Joi.number().min(0),
+        employeeCPF: Joi.number().min(0),
+        employeerCPF: Joi.number().min(0),
+        totalCPF: Joi.number().min(0),
+        SDL: Joi.number().min(0),
+
+    });
+    return schema.validate(data);
+};
+const assetValidate = (data) => {
+    const schema = Joi.object({
+        assetName: Joi.string().min(0).required(),
+        description: Joi.string().min(0),
+
+        availability: Joi.string().min(0).required(),
+        assignedTo: Joi.string().min(0),
+        
+
+    });
+    return schema.validate(data);
+};
+module.exports = {assetValidate, payrollPayItemValidate, payrollListValidate, iterviewCandidateValidate, iterviewRole2Validate, iterviewRole1Validate, orgHolidayWorkListValidate, orgAnnouncementValidate, organizationBranchOuletValidate, organizationDepartmentValidate, departmentValidate, postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }
