@@ -10,8 +10,8 @@ class organizationController {
         if (error) return res.status(400).send(error.details[0].message)
         // const value=req.body.task
         // docj file base64 vaf taoj link de luu vao mongodb
-        if (value.file) {
-            let uploadFile = await upload(value.file);
+        if (value.logo) {
+            let uploadFile = await upload(value.logo);
             let document = {
                 type: uploadFile.type,
                 url: `http://localhost:3000/static/document/${Date.now()}`,
@@ -24,7 +24,7 @@ class organizationController {
                 )
 
             }
-            value.file = document.url
+            value.logo = document.url
         }
         // var x = path.join(`./public/document/${new Date().toLocaleDateString}`)
 

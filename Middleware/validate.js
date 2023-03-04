@@ -317,4 +317,22 @@ const deskBookingValidate = (data) => {
     });
     return schema.validate(data);
 };
-module.exports = {deskBookingValidate, appraisalPeriodValidate,appraisalTemplateValidate, appraisalSummaryValidate, leaveValidate, claimValidate, shiftTemplateValidate, shiftValidate, attendanceValidate, assetValidate, payrollPayItemValidate, payrollListValidate, iterviewCandidateValidate, iterviewRole2Validate, iterviewRole1Validate, orgHolidayWorkListValidate, orgAnnouncementValidate, organizationBranchOuletValidate, organizationDepartmentValidate, departmentValidate, postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }
+const roomBookingValidate = (data) => {
+    const schema = Joi.object({
+        bookingDate: Joi.date().min(0).required(),
+        branchOutlet: Joi.string().min(0).required(),
+        bookingTime: Joi.string().min(0).required(),
+        employeeBooked: Joi.string().min(0).required()
+    });
+    return schema.validate(data);
+};
+const manageRoomValidate = (data) => {
+    const schema = Joi.object({
+        roomName: Joi.string().min(0).required(),
+        branchOutlet: Joi.string().min(0).required(),
+        uploadRoomImage: Joi.string().min(0).required(),
+        amenitiesSelection: Joi.string().min(0).required()
+    });
+    return schema.validate(data);
+};
+module.exports = {  manageRoomValidate,roomBookingValidate,deskBookingValidate, appraisalPeriodValidate,appraisalTemplateValidate, appraisalSummaryValidate, leaveValidate, claimValidate, shiftTemplateValidate, shiftValidate, attendanceValidate, assetValidate, payrollPayItemValidate, payrollListValidate, iterviewCandidateValidate, iterviewRole2Validate, iterviewRole1Validate, orgHolidayWorkListValidate, orgAnnouncementValidate, organizationBranchOuletValidate, organizationDepartmentValidate, departmentValidate, postSolutionsValidate, registerValidate, loginValidate, userUpdateValidate, eventCalendarValidate, notificationValidate, organizationValidate }

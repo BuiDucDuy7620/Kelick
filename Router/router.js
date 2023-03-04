@@ -23,7 +23,9 @@ const leaveRouter = require('./leaveRouter')
 const appraisalRouter = require('./appraisalRouter')
 
 const appraisalPeriodRouter = require('./appraisalPeriodRouter')
-const deskBookingRouter = require('./deskBookingRouter')
+// const deskBookingRouter = require('./deskBookingRouter')
+const roomBookingRouter = require('./roomBookingRouter')
+const manageRoomRouter = require('./manageRoomRouter')
 
 const Router = (app) => {
     // app.get('/',(req,res)=>{res.send('hello')})
@@ -52,7 +54,9 @@ const Router = (app) => {
     app.use('/kelick/leave', leaveRouter)
     app.use('/kelick/appraisal', appraisalRouter)
     app.use('/kelick/appraisalPeriod', appraisalPeriodRouter)
-    app.use('/kelick/deskBooking', deskBookingRouter)
+    // app.use('/kelick/deskBooking', deskBookingRouter)
+    app.use('/kelick/roomBooking', roomBookingRouter)
+    app.use('/kelick/manageRoom', manageRoomRouter)
 
 
 }

@@ -19,12 +19,25 @@ class AssetController {
             if (error) {
                 res.send(error)
             } else {
-                res.json(value)
+                res.json({ total: value.length, value })
             }
         })
     }
     getAssetById = (req, res) => {
         assetModel.find({ _id: req.params.id })
+            .exec((error, value) => {
+                if (error) {
+                    res.send(error)
+                } else {
+                    res.json(value)
+                    console.log(value)
+                }
+            })
+    }
+    getAssetByName = (req, res) => {
+        assetMode
+            // .find({ assetName: req.params.assetName })
+            .find({ "assetName": { $regex: req.body.assetName } })
             .exec((error, value) => {
                 if (error) {
                     res.send(error)
